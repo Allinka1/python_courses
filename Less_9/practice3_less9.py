@@ -4,26 +4,20 @@ filename = sys.argv[1]
 f = open(filename, 'r')
 for line in f:
     list_of_numbers = line.split(';')
-    # print(list_of_numbers)
     new_list = list_of_numbers[0].split()
-    print(new_list)
+    new_list_2 = list_of_numbers[1].split()
 
 
-# def my_func(number):
-# 	global list_of_numbers
-# 	result = []
-# 	for number in list_of_numbers:
-# 		if number == ";"
-# 		break
-# 	elif:
-# 		number.append(result)
+    result_average = (sum(list(map(int, new_list)))//len(new_list))
+    result_rest = (sum(list(map(int, new_list)))%len(new_list))  
+    
 
-# result_2 = sum(result)//len(result)
-# return result_2
+    new_list_2_int = list(map(int, new_list_2))
 
-    # second_filename = sys.argv[2] 
-    # new_file = open(second_filename, 'a')
-    # new_file.write(str(result) + '\n')
-    # new_file.close()
+    if result_average == new_list_2_int[0] and result_rest == new_list_2_int[1]:
+    	print('True')
+    else:
+    	print('False')
+
 
 f.close()
