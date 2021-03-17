@@ -1,9 +1,13 @@
-class Oxygen:
-    t_melting = - 218
-    t_fumes = - 182
+class Element:
 
-    def convertation_scale(self, t, s):
-        s = s.upper()
+    def __init__(self, t_melting, t_fumes, scale):
+        self.t_melting = t_melting
+        self.t_fumes = t_fumes
+        self.scale = scale
+
+
+    def convertation_scale(self, t):
+        s = self.scale.upper()
         if s == 'F':
             t = (t - 32) * (5/9)
             return t
@@ -14,8 +18,8 @@ class Oxygen:
             return t
 
 
-    def agg_state(self, t, s):
-        t = self.convertation_scale(t, s)
+    def agg_state(self, t):
+        t = self.convertation_scale(t)
 
         print(t)
 
@@ -26,5 +30,11 @@ class Oxygen:
         elif t > self.t_fumes:
             return 'I am steam'
 
-number = Oxygen()
-print(number.agg_state(-217, 'K'))
+
+
+class Oxygen(Element):
+    pass
+
+
+result1 = Oxygen(-218, -182, 'C')
+print(result1.agg_state(-217, 'K'))
